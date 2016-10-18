@@ -52,7 +52,7 @@ var http = {
     },
     post: function(url, params, headers, success, failure) {
         headers = mergeHeaders(this.headers, headers);
-        return exec(success, failure, "CordovaHttpPlugin", "post", [url, params, headers, this.cacheResults]);
+        return exec(success, failure, "CordovaHttpPlugin", "post", [url, params, headers]);
     },
     delete: function(url, params, headers, success, failure) {
         headers = mergeHeaders(this.headers, headers);
@@ -63,7 +63,7 @@ var http = {
     },
     postJson: function(url, params, headers, success, failure) {
         headers = mergeHeaders(this.headers, headers);
-        return exec(success, failure, "CordovaHttpPlugin", "postJson", [url, params, headers, this.cacheResults]);
+        return exec(success, failure, "CordovaHttpPlugin", "postJson", [url, params, headers]);
     },
     get: function(url, params, headers, success, failure) {
         headers = mergeHeaders(this.headers, headers);
@@ -71,7 +71,7 @@ var http = {
     },
     head: function(url, params, headers, success, failure) {
         headers = mergeHeaders(this.headers, headers);
-        return exec(success, failure, "CordovaHttpPlugin", "head", [url, params, headers, this.cacheResults]);
+        return exec(success, failure, "CordovaHttpPlugin", "head", [url, params, headers]);
     },
     uploadFile: function(url, params, headers, filePath, name, success, failure) {
         headers = mergeHeaders(this.headers, headers);
