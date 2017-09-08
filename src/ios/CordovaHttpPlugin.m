@@ -78,6 +78,17 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)setTimeout:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult* pluginResult = nil;
+   
+    int timeoutValue = [[command.arguments objectAtIndex:0] intValue];
+    
+    [manager.requestSerializer setTimeoutInterval:timeoutValue];
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 - (void)post:(CDVInvokedUrlCommand*)command {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.securityPolicy = securityPolicy;
@@ -160,7 +171,6 @@
     }];
     
 }
-
 
 - (void)get:(CDVInvokedUrlCommand*)command {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

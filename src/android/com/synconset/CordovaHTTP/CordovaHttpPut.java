@@ -28,6 +28,7 @@ public class CordovaHttpPut extends CordovaHttp implements Runnable {
         try {
             HttpRequest request = HttpRequest.put(this.getUrlString());
             this.setupSecurity(request);
+            this.setupTimeouts(request);
             request.headers(this.getHeaders());
             request.acceptJson();
             request.contentType(HttpRequest.CONTENT_TYPE_JSON);

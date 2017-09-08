@@ -39,6 +39,7 @@ public abstract class CordovaHttp {
     private static AtomicBoolean acceptAllCerts = new AtomicBoolean(false);
     private static AtomicBoolean cacheResults = new AtomicBoolean(false);
     private static AtomicBoolean validateDomainName = new AtomicBoolean(true);
+    private static AtomicInteger connectionTimeout = new AtomicInteger(0);
 
     private String urlString;
     private Map<?, ?> params;
@@ -83,6 +84,10 @@ public abstract class CordovaHttp {
         validateDomainName.set(accept);
     }
 
+    public static void setTimeout(int cTimeout) {
+         connectionTimeout.set(cTimeout);
+     }
+
     protected String getUrlString() {
         return this.urlString;
     }
@@ -115,6 +120,11 @@ public abstract class CordovaHttp {
         }
         return request;
     }
+
+    protected HttpRequest setupTimeouts(HttpRequest request) {
+         request.connectTimeout(connectionTimeout.get());
+         return request;
+     }
     
     protected void respondWithError(int status, String msg) {
         try {

@@ -25,6 +25,7 @@ public class CordovaHttpDelete extends CordovaHttp implements Runnable {
         try {
             HttpRequest request = HttpRequest.delete(this.getUrlString(), this.getParams(), false);
             this.setupSecurity(request);
+            this.setupTimeouts(request);
             request.acceptCharset(CHARSET);
             request.headers(this.getHeaders());
             int code = request.code();
