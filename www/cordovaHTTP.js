@@ -120,7 +120,8 @@ var http = {
 
 module.exports = http;
 
-if (typeof angular !== "undefined") {
+//always true as we are going to use it inside angular application
+if (true) {
     angular.module('cordovaHTTP', []).factory('cordovaHTTP', function($timeout, $q) {
         function makePromise(fn, args, async) {
             var deferred = $q.defer();
