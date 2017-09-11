@@ -79,6 +79,8 @@
 }
 
 - (void)setTimeout:(CDVInvokedUrlCommand*)command {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
     CDVPluginResult* pluginResult = nil;
    
     int timeoutValue = [[command.arguments objectAtIndex:0] intValue];
