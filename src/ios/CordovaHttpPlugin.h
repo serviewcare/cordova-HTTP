@@ -14,4 +14,6 @@
 - (void)downloadFile:(CDVInvokedUrlCommand*)command;
 - (void)put:(CDVInvokedUrlCommand*)command;
 - (void)delete:(CDVInvokedUrlCommand*)command;
+- (void)setTimeout:(CDVInvokedUrlCommand*)command;
+
 @end
